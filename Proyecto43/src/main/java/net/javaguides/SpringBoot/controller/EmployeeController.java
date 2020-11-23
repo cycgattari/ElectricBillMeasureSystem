@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,7 +24,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	// display list of employees
-	@GetMapping("/employeemain")
+	@GetMapping("/")
 	public String viewHomePage(Model model) { // en el model cargas la lista de empleados
 		return findPaginated(1, "nroDeUnidad", "asc", model);	
 	}
@@ -47,7 +48,6 @@ public class EmployeeController {
 		return "redirect:/"; // y volver a la pagina ppial
 	}
 
-	
 	@GetMapping("/showFormForUpdate/{id}")
 	public String showFormforUpdate(@PathVariable (value = "id") long id, Model model) {
 		Unidad employee = employeeService.getEmployeeById(id);
@@ -82,5 +82,4 @@ public class EmployeeController {
 		model.addAttribute("listEmployees", listEmployees);
 		return "index";
 	}
-	
 }
