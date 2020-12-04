@@ -79,10 +79,16 @@
      </div>
    </div>
     	 <div sec:authorize="isAuthenticated()">
-      		Usuario: <span sec:authentication="principal.username"></span>
+      		Bienvenido usuario: <span sec:authentication="principal.username"></span>
       		<br>
       		    <a th:href = "@{/logout}" class="btn btn-primary btn-sm mb-3"> Logout </a>      		
-      		</div>   
+      		</div>  
+      		
+      	<div class="form-group">
+			<span>Ver Consumos <a href="/" th:href="@{/consumos_deptos}">Click Here! 
+			</a></span>
+		</div>
+      		 
   </div>
  
 </body>
